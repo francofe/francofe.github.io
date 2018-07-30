@@ -1,37 +1,87 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
 
-You can use the [editor on GitHub](https://github.com/francofe/francofe.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+.bgimg {
+    background-image: url('/intro.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
 
-### Markdown
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
-```markdown
-Syntax highlighted code block
+hr {
+    margin: auto;
+    width: 40%;
+}
+</style>
+<body>
 
-# Header 1
-## Header 2
-### Header 3
+<div class="bgimg">
+  <div class="middle">
+    <h1>BULDING THE FUTURE</h1>
+    <hr>
+    <p id="demo" style="font-size:30px"></p>
+  </div>
+</div>
 
-- Bulleted
-- List
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 1, 2019 00:00:00").getTime();
 
-1. Numbered
-2. List
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
 
-**Bold** and _Italic_ and `Code` text
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/francofe/francofe.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</body>
+</html>
